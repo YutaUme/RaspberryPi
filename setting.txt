@@ -1,0 +1,7 @@
+#For Setting
+
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo rm /var/lib/dpkg/available
+sudo touch /var/lib/dpkg/available
+sudo sh -c 'for i in /var/lib/apt/lists/*_Packages; do dpkg --merge-avail ; done'
