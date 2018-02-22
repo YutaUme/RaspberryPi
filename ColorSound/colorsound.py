@@ -14,7 +14,7 @@ def capture():
     camera.capture('foo.jpg')
 
 def sound(hue,p):
-	print(hue)
+	print("Hue: "hue)
 	if(hue == 1):
 		print("sound: C")
 		p.ChangeFrequency(262)
@@ -90,45 +90,50 @@ GPIO.setup(SOUNDER,GPIO.OUT,initial=GPIO.LOW)
 
 p = GPIO.PWM(SOUNDER,1)
 
-while(1) :
-	
-	#撮影
-	capture()
+try:
+	while(1) :
+		
+		#撮影
+		capture()
 
-	# 画像を読み込み
-	img_scr = cv2.imread("foo.jpg")
+		# 画像を読み込み
+		img_scr = cv2.imread("foo.jpg")
 
-	# BGR->HSV に変換
-	img_hsv = cv2.cvtColor(img_scr, cv2.COLOR_BGR2HSV)
+		# BGR->HSV に変換
+		img_hsv = cv2.cvtColor(img_scr, cv2.COLOR_BGR2HSV)
 
-	height = img_hsv.shape[0]
-	width = img_hsv.shape[1]
+		height = img_hsv.shape[0]
+		width = img_hsv.shape[1]
 
-	# ピクセル抽出用の配列
-	pixels = []
+		# ピクセル抽出用の配列
+		pixels = []
 
-	# ある閾値を見たすピクセルと抽出
-	for y in range(height):
-		for x in range(width):
-			if (img_hsv[y, x, 1] > 45 and 32 < img_hsv[y, x, 2]):
-				pixels.append(img_hsv[y, x, 0])
+		# ある閾値を見たすピクセルと抽出(中心付近のみ)
+		for y in range(height):
+			if((1/3)*height < y < (2/3)*height):
+				for x in range(width):
+					if((1/3)*width < x < (2/3)*width):
+						if (img_hsv[y, x, 1] > 45 and 32 < img_hsv[y, x, 2]):
+							pixels.append(img_hsv[y, x, 0])
 
-	# Hue判定用に180を15ずつの区画に区切る
-	bins = np.linspace(0, 180, 13)
+		# Hue判定用に180を15ずつの区画に区切る
+		bins = np.linspace(0, 180, 13)
 
-	index = np.digitize(pixels,bins)
-	
-	c = Counter(index)
+		index = np.digitize(pixels,bins)
+		
+		c = Counter(index)
 
-	# 最頻値
-	mode = c.most_common(1)
+		# 最頻値
+		mode = c.most_common(1)
 
-	sound(mode[0][0],p)
+		sound(mode[0][0],p)
 
-	print("times:",t)
-	time.sleep(1)
-	t = t + 1
+		print("times:",t)
+		time.sleep(1)
+		t = t + 1
 
+finally:
+	GPIO.cleanup()
 
 
 
