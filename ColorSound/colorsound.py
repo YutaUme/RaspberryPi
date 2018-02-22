@@ -16,62 +16,62 @@ def capture():
 def sound(hue,p):
 	print(hue)
 	if(hue == 1):
-		print("C")
+		print("sound: C")
 		p.ChangeFrequency(262)
 		p.start(100)
 		p.stop()
 	elif(hue == 2):
-		print("C#")
+		print("sound: C#")
 		p.ChangeFrequency(277)
 		p.start(100)
 		p.stop()
 	elif(hue == 3):
-		print("D")
+		print("sound: D")
 		p.ChangeFrequency(294)
 		p.start(100)
 		p.stop()
 	elif(hue == 4):
-		print("D#")
+		print("sound: D#")
 		p.ChangeFrequency(311)
 		p.start(100)
 		p.stop()
 	elif(hue == 5):
-		print("E")
+		print("sound: E")
 		p.ChangeFrequency(330)
 		p.start(100)
 		p.stop()
 	elif(hue == 6):
-		print("F")
+		print("sound: F")
 		p.ChangeFrequency(349)
 		p.start(100)
 		p.stop()
 	elif(hue == 7):
-		print("F#")
+		print("sound: F#")
 		p.ChangeFrequency(370)
 		p.start(100)
 		p.stop()
 	elif(hue == 8):
-		print("G")
+		print("sound: G")
 		p.ChangeFrequency(392)
 		p.start(100)
 		p.stop()
 	elif(hue == 9):
-		print("G#")
+		print("sound: G#")
 		p.ChangeFrequency(415)
 		p.start(100)
 		p.stop()
 	elif(hue == 10):
-		print("A")
+		print("sound: A")
 		p.ChangeFrequency(440)
 		p.start(100)
 		p.stop()
 	elif(hue == 11):
-		print("A#")
+		print("sound: A#")
 		p.ChangeFrequency(466)
 		p.start(100)
 		p.stop()
 	elif(hue == 12):
-		print("B")
+		print("sound: B")
 		p.ChangeFrequency(493)
 		p.start(100)
 		p.stop()
@@ -125,7 +125,7 @@ while(1) :
 
 	sound(mode[0][0],p)
 
-	print(t)
+	print("times:",t)
 	time.sleep(1)
 	t = t + 1
 
