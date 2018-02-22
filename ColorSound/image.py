@@ -3,47 +3,78 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 from collections import Counter
-import winsound
+import time
+import RPi.GPIO as GPIO
 
-def sound(hue):
+def sound(hue,p):
 	print(hue)
 	if(hue == 1):
 		print("C")
-		winsound.Beep(262,1000)
+		p.ChangeFrequency(262)
+		p.start(100)
+		p.stop()
 	elif(hue == 2):
 		print("C#")
-		winsound.Beep(277,1000)
+		p.ChangeFrequency(277)
+		p.start(100)
+		p.stop()
 	elif(hue == 3):
 		print("D")
-		winsound.Beep(294,1000)
+		p.ChangeFrequency(294)
+		p.start(100)
+		p.stop()
 	elif(hue == 4):
 		print("D#")
-		winsound.Beep(311,1000)
+		p.ChangeFrequency(311)
+		p.start(100)
+		p.stop()
 	elif(hue == 5):
 		print("E")
-		winsound.Beep(330,1000)
+		p.ChangeFrequency(330)
+		p.start(100)
+		p.stop()
 	elif(hue == 6):
 		print("F")
-		winsound.Beep(349,1000)
+		p.ChangeFrequency(349)
+		p.start(100)
+		p.stop()
 	elif(hue == 7):
 		print("F#")
-		winsound.Beep(370,1000)
+		p.ChangeFrequency(370)
+		p.start(100)
+		p.stop()
 	elif(hue == 8):
 		print("G")
-		winsound.Beep(392,1000)
+		p.ChangeFrequency(392)
+		p.start(100)
+		p.stop()
 	elif(hue == 9):
 		print("G#")
-		winsound.Beep(415,1000)
+		p.ChangeFrequency(415)
+		p.start(100)
+		p.stop()
 	elif(hue == 10):
 		print("A")
-		winsound.Beep(440,1000)
+		p.ChangeFrequency(440)
+		p.start(100)
+		p.stop()
 	elif(hue == 11):
 		print("A#")
-		winsound.Beep(466,1000)
+		p.ChangeFrequency(466)
+		p.start(100)
+		p.stop()
 	elif(hue == 12):
 		print("B")
-		winsound.Beep(494,1000)
+		p.ChangeFrequency(493)
+		p.start(100)
+		p.stop()
 
+
+SOUNDER = 21
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(SOUNDER,GPIO.OUT,initial=GPIO.LOW)
+
+p = GPIO.PWM(SOUNDER,1)
 
 # 画像を読み込み
 img_scr = cv2.imread("tomato.jpg")
@@ -72,7 +103,9 @@ c = Counter(index)
 # print (c)
 mode = c.most_common(1)
 
-sound(mode[0][0])
+
+
+sound(mode[0][0],p)
 
 
 
