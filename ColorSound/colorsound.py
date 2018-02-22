@@ -13,5 +13,12 @@ def capture():
     #time.sleep(2) #カメラ初期化
     camera.capture('foo.jpg')
 
-capture()
+
+
+t = 0
+while(1) :
+	capture()
+	print(t)
+	time.sleep(1)
+	t = t + 1
 
