@@ -1,0 +1,18 @@
+# -*- coding:utf-8 -*-
+import numpy as np
+import matplotlib.pyplot as plt
+import cv2
+from collections import Counter
+import time
+import RPi.GPIO as GPIO
+import picamera
+
+
+def capture():
+  with picamera.PiCamera() as camera:
+    camera.resolution = (320, 240)
+    #time.sleep(2) #カメラ初期化
+    camera.capture('foo.jpg')
+
+capture()
+
