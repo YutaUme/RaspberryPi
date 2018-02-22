@@ -14,7 +14,7 @@ def capture():
     camera.capture('foo.jpg')
 
 def sound(hue,p):
-	print("Hue: "hue)
+	print("Hue:",hue)
 	if(hue == 1):
 		print("sound: C")
 		p.ChangeFrequency(262)
