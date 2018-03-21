@@ -28,7 +28,7 @@ j = 0
 while i < len(MELODY) :
 
     while j < len(MELODY[i]) :
-        p.ChangeFrequency(MELODY[i][j])
+        p.ChangeFrequency(MELODY[i][j]*4)
         time.sleep(0.5)
         j = j + 1
 
