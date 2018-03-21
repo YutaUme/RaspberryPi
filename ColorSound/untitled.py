@@ -17,7 +17,7 @@ p = GPIO.PWM(21,440)
 print(p)
 p.start(100)
 
-p.ChangeFrequency()
+p.ChangeFrequency(290)
 
 time.sleep(2)
 
