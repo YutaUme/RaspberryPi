@@ -75,7 +75,7 @@ GPIO.setup(SOUNDER,GPIO.OUT,initial=GPIO.LOW)
 
 p = GPIO.PWM(SOUNDER,1)
 
-p.start(1000)
+p.start(100)
 
 try:
 	while(1) :
