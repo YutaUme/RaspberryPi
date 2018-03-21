@@ -19,17 +19,17 @@ p = GPIO.PWM(18,int(sys.argv[1]))
 print(p)
 p.start(100)
 
-p.ChangeFrequency(290)
+p.ChangeFrequency(200)
+
+time.sleep(2)
+
+print(p)
+p.ChangeFrequency(800)
 
 time.sleep(2)
 
 print(p)
 p.ChangeFrequency(440)
-
-time.sleep(2)
-
-print(p)
-p.ChangeFrequency(330)
 
 p.stop()
 GPIO.cleanup()
