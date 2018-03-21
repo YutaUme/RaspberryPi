@@ -97,11 +97,11 @@ try:
 
 		# ある閾値を見たすピクセルと抽出(中心付近のみ)
 		for y in range(height):
-			if((1/3)*height < y < (2/3)*height):
-				for x in range(width):
-					if((1/3)*width < x < (2/3)*width):
-						if (img_hsv[y, x, 1] > 45 and 32 < img_hsv[y, x, 2]):
-							pixels.append(img_hsv[y, x, 0])
+			# if((1/3)*height < y < (2/3)*height):
+			for x in range(width):
+					# if((1/3)*width < x < (2/3)*width):
+				if (img_hsv[y, x, 1] > 45 and 32 < img_hsv[y, x, 2]):
+					pixels.append(img_hsv[y, x, 0])
 
 		# Hue判定用に180を15ずつの区画に区切る
 		bins = np.linspace(0, 180, 13)
