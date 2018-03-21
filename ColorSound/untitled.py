@@ -24,15 +24,20 @@ pin.hardware_PWM(SOUNDER, 0, 0)
 pin.hardware_PWM(SOUNDER, 4000, 500000)
 
 time.sleep(2)
+pin.hardware_PWM(SOUNDER, 0, 500000)
+time.sleep(2)
 
 pin.hardware_PWM(SOUNDER, 2000, 500000)
 
 time.sleep(2)
+pin.hardware_PWM(SOUNDER, 0, 500000)
+time.sleep(2)
 
 pin.hardware_PWM(SOUNDER, 4000, 500000)
 
+time.sleep(2)
 
 pin.hardware_PWM(SOUNDER, 0, 0)
 pin.set_mode(SOUNDER, pigpio.INPUT)
 pin.stop()
-GPIO.cleanup()
+
