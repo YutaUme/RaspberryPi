@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 
-SOUNDER = 21
+SOUNDER = 18
 
 DO = 262
 RE = 294
@@ -28,7 +28,7 @@ j = 0
 while i < len(MELODY) :
 
     while j < len(MELODY[i]) :
-        p.ChangeFrequency(MELODY[i][j]*4)
+        p.ChangeFrequency(MELODY[i][j]*2)
         time.sleep(0.5)
         j = j + 1
 
