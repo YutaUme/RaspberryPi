@@ -67,7 +67,7 @@ def sound(hue,p):
 ## Main
 
 t = 0
-
+loop = 0
 
 SOUNDER = 21 # GPIO番号
 GPIO.setmode(GPIO.BCM)
@@ -108,6 +108,10 @@ try:
 
 		print(pixels)
 		print(bins)
+
+		print("loop",loop)
+		loop = loop + 1
+
 
 		if(pixels != []):
 			index = np.digitize(pixels,bins)
