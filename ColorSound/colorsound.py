@@ -109,7 +109,7 @@ try:
 		print(pixels)
 		print(bins)
 
-		if(pixels == []):
+		if(pixels != []):
 			index = np.digitize(pixels,bins)
 			
 			c = Counter(index)
