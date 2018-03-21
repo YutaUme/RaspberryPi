@@ -10,11 +10,11 @@ import sys
 
 
 
-SOUNDER = 21 # GPIO番号
+SOUNDER = 18 # GPIO番号
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(SOUNDER,GPIO.OUT)
 
-p = GPIO.PWM(21,int(sys.argv[1]))
+p = GPIO.PWM(18,int(sys.argv[1]))
 
 print(p)
 p.start(100)
