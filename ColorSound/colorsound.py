@@ -121,7 +121,7 @@ try:
 			sound(mode[0][0],p)
 
 			print("times:",t)
-			time.sleep(1)
+			time.sleep(15)
 			t = t + 1
 
 		else:
