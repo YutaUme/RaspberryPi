@@ -18,77 +18,64 @@ def sound(hue,p):
 	if(hue == 1):
 		print("sound: C")
 		p.ChangeFrequency(262)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 2):
 		print("sound: C#")
 		p.ChangeFrequency(277)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 3):
 		print("sound: D")
 		p.ChangeFrequency(294)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 4):
 		print("sound: D#")
 		p.ChangeFrequency(311)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 5):
 		print("sound: E")
 		p.ChangeFrequency(330)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 6):
 		print("sound: F")
 		p.ChangeFrequency(349)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 7):
 		print("sound: F#")
 		p.ChangeFrequency(370)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 8):
 		print("sound: G")
 		p.ChangeFrequency(392)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 9):
 		print("sound: G#")
 		p.ChangeFrequency(415)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 10):
 		print("sound: A")
 		p.ChangeFrequency(440)
-		p.start(100)
-		p.stop()
+		
 	elif(hue == 11):
 		print("sound: A#")
 		p.ChangeFrequency(466)
-		p.start(100)
-		p.stop()
+	
 	elif(hue == 12):
 		print("sound: B")
 		p.ChangeFrequency(493)
-		p.start(100)
-		p.stop()
-
-
-
 
 
 ## Main
 
 t = 0
 
-SOUNDER = 21
+
+SOUNDER = 21 # GPIO番号
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(SOUNDER,GPIO.OUT,initial=GPIO.LOW)
 
 p = GPIO.PWM(SOUNDER,1)
+
+p.start(1000)
 
 try:
 	while(1) :
@@ -133,6 +120,7 @@ try:
 		t = t + 1
 
 finally:
+	p.stop()
 	GPIO.cleanup()
 
 
