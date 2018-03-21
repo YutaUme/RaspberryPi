@@ -10,20 +10,23 @@ import picamera
 
 SOUNDER = 21 # GPIO番号
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(SOUNDER,GPIO.OUT,initial=GPIO.LOW)
+GPIO.setup(SOUNDER,GPIO.OUT)
 
-p = GPIO.PWM(SOUNDER,1)
+p = GPIO.PWM(21,440)
 
+print(p)
 p.start(100)
 
-p.ChangeFrequency(262)
+p.ChangeFrequency()
 
 time.sleep(2)
 
+print(p)
 p.ChangeFrequency(440)
 
 time.sleep(2)
 
+print(p)
 p.ChangeFrequency(330)
 
 p.stop()
