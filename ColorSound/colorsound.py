@@ -106,6 +106,9 @@ try:
 		# Hue判定用に180を15ずつの区画に区切る
 		bins = np.linspace(0, 180, 13)
 
+		print(pixels)
+		print(bins)
+
 		index = np.digitize(pixels,bins)
 		
 		c = Counter(index)
