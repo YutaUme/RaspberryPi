@@ -109,18 +109,19 @@ try:
 		print(pixels)
 		print(bins)
 
-		index = np.digitize(pixels,bins)
-		
-		c = Counter(index)
+		if(pixels == []):
+			index = np.digitize(pixels,bins)
+			
+			c = Counter(index)
 
-		# 最頻値
-		mode = c.most_common(1)
+			# 最頻値
+			mode = c.most_common(1)
 
-		sound(mode[0][0],p)
+			sound(mode[0][0],p)
 
-		print("times:",t)
-		time.sleep(1)
-		t = t + 1
+			print("times:",t)
+			time.sleep(1)
+			t = t + 1
 
 finally:
 	p.stop()
